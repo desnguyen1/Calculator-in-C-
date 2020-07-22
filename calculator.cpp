@@ -3,7 +3,7 @@
 
 int main()
 {
-    double num2, total;
+    double num2, total, prevTotal;
     int error = 0;
     char op, choice;
     std::cout<<"\n---------------------------------------"<<std::endl;
@@ -18,34 +18,44 @@ int main()
     std::cin>>total;
     do{
         do{
-            std::cout<<"\nPlease enter the next value: ";
-            std::cin>>num2;
             std::cout<<"\nEnter the operation: ";
             std::cin>>op;
+            std::cout<<"\nPlease enter the next value: ";
+            std::cin>>num2;
             //switch operator for basic calculator
             switch(op){
                 case '+':
+                    prevTotal = total;
                     total += num2;
+                    std::cout<<"\n"<<prevTotal<<" + "<<num2<<" = "<<total<<std::endl;
                     error = 0;
                     break;
                 case '-':
+                    prevTotal = total;
                     total -= num2;
+                    std::cout<<"\n"<<prevTotal<<" - "<<num2<<" = "<<total<<std::endl;
                     error = 0;
                     break;
                 case '/':
+                    prevTotal = total;
                     while(num2 == 0){
                         std::cout<<"\nCannot divide by 0. Please choose another number: ";
                         std::cin>>num2;
                     }
                     total /= num2;
+                    std::cout<<"\n"<<prevTotal<<" / "<<num2<<" = "<<total<<std::endl;
                     error = 0;
                     break;
                 case '*':
+                    prevTotal = total;
                     total *= num2;
+                    std::cout<<"\n"<<prevTotal<<" * "<<num2<<" = "<<total<<std::endl;
                     error = 0;
                     break;
                 case '^':
+                    prevTotal = total;
                     total = pow(total, num2);
+                    std::cout<<"\n"<<prevTotal<<" ^ "<<num2<<" = "<<total<<std::endl;
                     break;
                 default:
                     std::cout<<"\nInvalid operation";
