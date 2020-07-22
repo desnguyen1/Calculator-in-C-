@@ -1,13 +1,19 @@
 #include <iostream>
-
+#include <cmath>
 
 int main()
 {
-    float num2, total;
+    double num2, total;
     int error = 0;
     char op, choice;
     std::cout<<"\n---------------------------------------"<<std::endl;
     std::cout<<"Welcome to the basic calculator program";
+    std::cout<<"\nCalculator operations: ";
+    std::cout<<"\nAddition: +";
+    std::cout<<"\nSubtraction: -";
+    std::cout<<"\nDivision: /";
+    std::cout<<"\nMultiplication: *";
+    std::cout<<"\nExponent: ^";
     std::cout<<"\nPlease enter the first value: ";
     std::cin>>total;
     do{
@@ -37,6 +43,9 @@ int main()
                 case '*':
                     total *= num2;
                     error = 0;
+                    break;
+                case '^':
+                    total = pow(total, num2);
                     break;
                 default:
                     std::cout<<"\nInvalid operation";
